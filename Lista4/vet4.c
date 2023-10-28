@@ -5,8 +5,8 @@ int main() {
     scanf("%d", &N);
 
     int vetor[N];
-    int odd[N];
-    int even[N];
+    int indices_odd[N];
+    int indices_even[N];
 
     int count_odd = 0;
     int count_even = 0;
@@ -14,26 +14,19 @@ int main() {
     for (int i = 0; i < N; i++) {
         scanf("%d", &vetor[i]);
         if (vetor[i] % 2 == 0) {
-            odd[count_odd] = vetor[i];
+            indices_odd[count_odd] = i;
             count_odd++;
         } else {
-            even[count_even] = vetor[i];
+            indices_even[count_even] = i;
             count_even++;
         }
     }
-
     for (int i = 0; i < count_odd; i++) {
-        if (i > 0) {
-            printf(" ");
-        }
-        printf("%d", odd[i]);
+        printf("%d ", indices_odd[i]);
     }
     printf("\n");
     for (int i = 0; i < count_even; i++) {
-        if (i > 0) {
-            printf(" ");
-        }
-        printf("%d", even[i]);
+        printf("%d ", indices_even[i]);
     }
     printf("\n");
 
