@@ -16,13 +16,13 @@ int main() {
 
     for (int i = 0; i < N; i++) {
         if (vetor[i] > media) {
-            printf("%d", vetor[i]);
-            if (i < N - 1) printf(" ");
+            if(i != N-1) printf("%d ", vetor[i]);
+            else printf("%d\n", vetor[i]);
             higher_media = 1;
         }
     }
     if (!higher_media) {
-        printf("0 \n");
+        printf("0\n");
     }
     return 0;
 }
