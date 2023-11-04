@@ -9,30 +9,30 @@ void toLowerCase(char *str) {
 }
 
 int main() {
-    int c = 0;
-    int len = 0;
-    char input[101];
-    char primeironome[101];
-    char sobrenome[101]; 
+   char input[1000]; 
+    char words[100][100];
+    int wordCount = 0;
+    int charCount = 0;
 
-    scanf("%s", input);
-    while ((c = getchar()) != '\n') {
-        input[len++] = c;
-    }
-    for (int i = len; input[i] != '\0'; i--) {
-        for(int j = 0; input[i] != '\0'; i++) {
-            sobrenome[j] = input[i];
+    fgets(input, sizeof(input), stdin);
+
+    for (int i = 0; input[i] != '\0'; i++) {
+        if (input[i] == ' ' || input[i] == '\n') {
+            if (charCount > 0) {
+                words[wordCount][charCount] = '\0';
+                wordCount++;
+                charCount = 0;
+            }
+        } else {
+            words[wordCount][charCount] = input[i];
+            charCount++;
         }
     }
-    printf("%s", sobrenome);
-    for(int i = 0; input[i] != '\0'; i++) {
-        primeironome[i] = input[i];
-    }
+    toLowerCase(words[0]);
+    toLowerCase(words[wordCount - 1]);
 
-    toLowerCase(primeironome);
-    toLowerCase(sobrenome);
-
-    printf("%s.%s@unb.br\n", primeironome, sobrenome);
+    printf("%s.%s@unb.br\n", words[0], words[wordCount - 1]);
 
     return 0;
 }
+

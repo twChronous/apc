@@ -17,6 +17,7 @@ int main() {
 
         if (tamanho > maiorTamanho) {
             maiorTamanho = tamanho;
+            tamanho = 0;
         }
     }
 
