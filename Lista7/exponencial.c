@@ -1,27 +1,35 @@
-#include <stdio.h>
+//#include <stdio.h>
 
-// Função para calcular o fatorial de um número
-int fatorial(int num) {
-    if (num == 0 || num == 1) {
-        return 1;
+double fatorial(int n) {
+    if (n == 0 || n == 1) {
+        return 1.0;
     } else {
-        return num * fatorial(num - 1);
+        return n * fatorial(n - 1);
     }
 }
-
+int power(int num, int pot){
+    int i,resul=1;
+    for(i=0; i < pot; i++) {
+        resul *= num;
+        if(pot == 0){
+            resul = 1;
+        }
+    }
+  	return resul;
+}
 double exp_natural(int x, int n) {
-    double resultado = 2.71828;
+    double resultado = 1.0;
 
     for (int i = 1; i <= n; i++) {
-        resultado += (double)x / fatorial(i);
+        resultado += (double)power(x, i) / fatorial(i);
     }
 
     return resultado;
 }
+// int main() {
+//     double resultado = exp_natural(3, 4);
 
-int main() {
-    double resultado = exp_natural(2, 7);
-    printf("%lf\n", resultado);
+//     printf("%lf\n", resultado);
 
-    return 0;
-}
+//     return 0;
+// }
